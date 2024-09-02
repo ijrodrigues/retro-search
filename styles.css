@@ -1,0 +1,120 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Estilo do fundo e das estrelas */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.estrelas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.estrela {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkling 2s infinite, moveStar 30s linear infinite;
+}
+
+@keyframes twinkling {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveStar {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Estilo geral da página */
+.container {
+    text-align: center;
+    padding-top: 50px;
+    z-index: 1;
+    position: relative;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: 3em;
+    color: #FFD700;
+    text-shadow:
+            4px 4px 0 #FF0066, /* Sombra rosa */
+            8px 8px 0 #000;    /* Sombra preta */
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    font-size: 1.5em;
+    border: 2px solid #FFD700;
+    background-color: black;
+    color: #00FF00;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #FFD700;
+}
+
+.results {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.card {
+    background-color: #333;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    color: #00FF00;
+    box-shadow: 0px 0px 10px 2px #FFD700;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 0.9em;
+}
