@@ -94,6 +94,10 @@ body {
         bottom: 50px;
         opacity: 1;
     }
+    50% {
+        bottom: 50%;
+        opacity: 1;
+    }
     100% {
         bottom: 100%;
         opacity: 0;
@@ -115,7 +119,7 @@ body {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(calc(100vw + 60px)); /* Move o alien para fora da tela à direita */
+        transform: translateX(calc(100vw + 10px)); /* Move o alien para fora da tela à direita */
     }
     100% {
         transform: translateX(0); /* Volta à posição inicial */
@@ -159,7 +163,6 @@ input[type="text"]::placeholder {
     font-size: 1.2rem;
     user-select: none;
 }
-
 .results {
     margin-top: 30px;
     display: grid;
@@ -175,13 +178,20 @@ input[type="text"]::placeholder {
     padding: 10px;
     text-align: center;
     color: #FFF;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
     height: 290px; /* Altura aproximada de uma fita de SNES */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.3s ease-in-out; /* Transição suave para o efeito de hover */
+    transform-style: preserve-3d; /* Preserva o efeito 3D ao aplicar transformações */
+    box-shadow: 6px 6px 0 #212121;
+}
+
+.sn-card:hover {
+    transform: rotateX(8deg) rotateY(8deg) scale(1.05); /* Efeito de rotação 3D ao passar o mouse */
+    box-shadow: 6px 6px 0 #212121, 0 0 5px #ff00c3;
 }
 
 .sn-image img {
@@ -192,14 +202,16 @@ input[type="text"]::placeholder {
     margin-bottom: 5px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    box-shadow: 0px 0px 6px 0px black;
+    box-shadow: 0 0 6px 0 black;
+    transform: translateZ(5px); /* Leva a imagem para a frente no espaço 3D */
 }
 
 .sn-label {
     background-color: #333; /* Cor da parte do rótulo */
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0 0 2px 1px black;
+    transform: translateZ(10px); /* Leva o rótulo para a frente no espaço 3D */
 }
 
 .sn-label h3 {
@@ -224,6 +236,7 @@ input[type="text"]::placeholder {
     background-color: #333;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    transform: translateZ(-5px); /* Leva a parte superior do cartão para trás no espaço 3D */
 }
 
 .sn-card:after {
@@ -236,7 +249,9 @@ input[type="text"]::placeholder {
     background-color: #333;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    transform: translateZ(-5px); /* Leva a parte inferior do cartão para trás no espaço 3D */
 }
+
 
 /* Estilo do botão de reiniciar */
 .restart-button {
@@ -260,7 +275,6 @@ input[type="text"]::placeholder {
     position: fixed;
     bottom: 40px;
     right: 0;
-    width: 20%;
     padding: 10px;
     font-size: 0.4em;
 }
