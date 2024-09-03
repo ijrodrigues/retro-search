@@ -111,6 +111,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
                 <h3>${game.name}</h3>
                 <p>${game.description}</p>
             </div>
+            <div class="sn-ear right-ear"></div>
         </div>
     `).join('');
     }else {

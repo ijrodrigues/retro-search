@@ -10,7 +10,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    overflow-x: hidden;
 }
 
 .estrelas {
@@ -61,8 +61,8 @@ body {
 
 /* Estilo da nave */
 .nave {
-    position: fixed; /* Muda para 'fixed' para mantê-la no fundo da página */
-    bottom: 20px; /* Mantém a nave 20px acima do fundo da tela */
+    position: fixed;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -70,7 +70,7 @@ body {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-bottom: 30px solid #FFD700;
-    transition: left 0.1s linear; /* Adiciona uma transição suave para o movimento */
+    transition: left 0.1s linear;
 }
 
 @keyframes moverNave {
@@ -81,8 +81,8 @@ body {
 
 /* Estilo dos tiros */
 .tiro {
-    position: fixed; /* Muda para 'fixed' para mantê-la no fundo da página */
-    bottom: 20px; /* Mantém a nave 20px acima do fundo da tela */
+    position: fixed;
+    bottom: 20px;
     width: 2px;
     height: 10px;
     background-color: #FF0066;
@@ -108,7 +108,7 @@ body {
 .alien {
     position: absolute;
     top: 0;
-    left: -5%; /* Começa fora da tela à esquerda */
+    left: -5%;
     animation: moverAlien 40s linear infinite;
     width: 70px;
     height: 100px;
@@ -119,10 +119,10 @@ body {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(calc(100vw + 10px)); /* Move o alien para fora da tela à direita */
+        transform: translateX(calc(100vw + 10px));
     }
     100% {
-        transform: translateX(0); /* Volta à posição inicial */
+        transform: translateX(0);
     }
 }
 
@@ -132,8 +132,8 @@ body {
     padding-top: 50px;
     z-index: 1;
     position: relative;
-    overflow-y: auto; /* Habilita rolagem vertical quando necessário */
-    padding-bottom: 80px; /* Espaço para o conteúdo do final */
+    overflow-y: auto;
+    padding-bottom: 80px;
 }
 
 .title {
@@ -141,8 +141,8 @@ body {
     font-size: 3em;
     color: #FFD700;
     text-shadow:
-            4px 4px 0 #FF0066, /* Sombra rosa */
-            8px 8px 0 #000;    /* Sombra preta */
+            4px 4px 0 #FF0066,
+            8px 8px 0 #000;
 }
 
 input[type="text"] {
@@ -163,6 +163,7 @@ input[type="text"]::placeholder {
     font-size: 1.2rem;
     user-select: none;
 }
+
 .results {
     margin-top: 30px;
     display: grid;
@@ -172,103 +173,125 @@ input[type="text"]::placeholder {
 }
 
 .sn-card {
-    background-color: #666; /* Cor cinza similar à fita */
-    border: 2px solid #333; /* Bordas escuras para dar profundidade */
-    border-radius: 8px;
-    padding: 10px;
+    background-color: #555;
+    border: 2px solid #333;
+    border-radius: 10px;
     text-align: center;
     color: #FFF;
     position: relative;
     overflow: hidden;
-    height: 290px; /* Altura aproximada de uma fita de SNES */
+    height: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease-in-out; /* Transição suave para o efeito de hover */
-    transform-style: preserve-3d; /* Preserva o efeito 3D ao aplicar transformações */
-    box-shadow: 6px 6px 0 #212121;
+    justify-content: flex-start;
+    box-shadow: 6px 6px 0 #212121, 0 0 10px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    padding: 10px 25px;
 }
 
-.sn-card:hover {
-    transform: rotateX(8deg) rotateY(8deg) scale(1.05); /* Efeito de rotação 3D ao passar o mouse */
-    box-shadow: 6px 6px 0 #212121, 0 0 5px #ff00c3;
+.sn-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #333;
+    top: -10px;
+    left: 0;
+    right: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.sn-card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: #333;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Estilo para as orelhas da fita */
+.sn-ear {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: #555;
+    border: 2px solid #333;
+    z-index: 1;
+}
+
+.left-ear {
+    left: -30px;
+    border-radius: 10px 0 0 10px;
+}
+
+.right-ear {
+    right: -30px;
+    border-radius: 0 10px 10px 0;
+}
+
+.sn-image {
+    background-color: #333;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 
 .sn-image img {
     width: 100%;
     height: auto;
-    max-height: 190px;
-    object-fit: cover;
-    margin-bottom: 5px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    max-height: 150px;
+    border-radius: 8px;
     box-shadow: 0 0 6px 0 black;
-    transform: translateZ(5px); /* Leva a imagem para a frente no espaço 3D */
+    object-fit: cover;
 }
 
 .sn-label {
-    background-color: #333; /* Cor da parte do rótulo */
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 0 2px 1px black;
-    transform: translateZ(10px); /* Leva o rótulo para a frente no espaço 3D */
+    background-color: #444;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .sn-label h3 {
-    margin: 5px 0;
+    margin: 0;
     font-size: 1em;
-    color: #FFD700; /* Cor dourada do texto */
+    color: #FFD700;
 }
 
 .sn-label p {
     font-size: 0.8em;
     color: #FFF;
-    margin: 0;
+    margin: 5px 0 0;
+    text-align: left;
 }
 
-.sn-card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 15px;
-    background-color: #333;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    transform: translateZ(-5px); /* Leva a parte superior do cartão para trás no espaço 3D */
+.sn-card:hover {
+    transform: rotateX(3deg) rotateY(3deg) scale(1.05);
 }
-
-.sn-card:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 15px;
-    background-color: #333;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    transform: translateZ(-5px); /* Leva a parte inferior do cartão para trás no espaço 3D */
-}
-
 
 /* Estilo do botão de reiniciar */
 .restart-button {
     position: fixed;
     top: 20px;
     right: 50px;
-    width: 90px; /* Ajuste o tamanho da imagem conforme necessário */
+    width: 90px;
     height: 65px;
     cursor: pointer;
-    z-index: 1000; /* Garante que a imagem fique acima de outros elementos */
-    display: none; /* Inicialmente escondida */
+    z-index: 1000;
+    display: none;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .restart-button:hover {
-    transform: translateY(5px); /* Eleva a imagem 5px para baixo */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra para o efeito de lift */
+    transform: translateY(5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer{
