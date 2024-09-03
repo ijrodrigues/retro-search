@@ -10,7 +10,7 @@ function criarTiro() {
     const nave = document.querySelector('.nave');
     const tiro = document.createElement('div');
     tiro.classList.add('tiro');
-    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 1}px`;
+    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 20}px`;
     document.body.appendChild(tiro);
 
     // Verifica se o tiro colide com o alien
@@ -90,22 +90,30 @@ document.getElementById('searchInput').addEventListener('input', function () {
 
     // Exemplo de resultados estáticos
     const games = [
-        { name: "Super Mario Bros", description: "A classic platformer game by Nintendo." },
-        { name: "The Legend of Zelda", description: "An action-adventure game with puzzles and exploration." },
-        { name: "Pac-Man", description: "A maze arcade game with ghosts and pellets." },
-        { name: "Street Fighter II", description: "A popular fighting game with memorable characters." },
-        { name: "Mega Man X", description: "A side-scrolling platformer with robot enemies." },
-        { name: "Sonic the Hedgehog", description: "A fast-paced platformer featuring Sonic the blue hedgehog." },
-        { name: "Tetris", description: "A puzzle game with falling blocks." },
-        { name: "Donkey Kong", description: "An arcade game with barrels and a giant ape." }
+        { name: "Super Mario Bros", description: "A classic platformer game by Nintendo.", image: "super-mario.png" },
+        { name: "The Legend of Zelda", description: "An action-adventure game with puzzles and exploration.", image: "zelda.webp" },
+        { name: "Pac-Man", description: "A maze arcade game with ghosts and pellets.", image: "pac-man.png" },
+        { name: "Street Fighter II", description: "A popular fighting game with memorable characters.", image: "street-fighter.png" },
+        { name: "Mega Man X", description: "A side-scrolling platformer with robot enemies.", image: "mega-man.png" },
+        { name: "Sonic the Hedgehog", description: "A fast-paced platformer featuring Sonic the blue hedgehog.", image: "sonic.png" },
+        { name: "Tetris", description: "A puzzle game with falling blocks.", image: "tetris.png" },
+        { name: "Donkey Kong", description: "An arcade game with barrels and a giant ape.", image: "donkey-kong.png" }
     ];
 
-    const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-
-    resultsContainer.innerHTML = filteredGames.map(game => `
-        <div class="card">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
+    if(query.length !== 0) {
+        const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+        resultsContainer.innerHTML = filteredGames.map(game => `
+        <div class="sn-card">
+            <div class="sn-image">
+                <img src="assets/${game.image}" alt="${game.name}">
+            </div>
+            <div class="sn-label">
+                <h3>${game.name}</h3>
+                <p>${game.description}</p>
+            </div>
         </div>
     `).join('');
+    }else {
+        resultsContainer.innerHTML = '';
+    }
 });

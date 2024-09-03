@@ -10,7 +10,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
 .estrelas {
@@ -61,8 +61,8 @@ body {
 
 /* Estilo da nave */
 .nave {
-    position: absolute;
-    bottom: 20px;
+    position: fixed; /* Muda para 'fixed' para mantê-la no fundo da página */
+    bottom: 20px; /* Mantém a nave 20px acima do fundo da tela */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -81,7 +81,8 @@ body {
 
 /* Estilo dos tiros */
 .tiro {
-    position: absolute;
+    position: fixed; /* Muda para 'fixed' para mantê-la no fundo da página */
+    bottom: 20px; /* Mantém a nave 20px acima do fundo da tela */
     width: 2px;
     height: 10px;
     background-color: #FF0066;
@@ -127,6 +128,8 @@ body {
     padding-top: 50px;
     z-index: 1;
     position: relative;
+    overflow-y: auto; /* Habilita rolagem vertical quando necessário */
+    padding-bottom: 80px; /* Espaço para o conteúdo do final */
 }
 
 .title {
@@ -158,31 +161,81 @@ input[type="text"]::placeholder {
 }
 
 .results {
-    margin-top: 20px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 0 10px;
 }
 
-.card {
-    background-color: #333;
-    border: 2px solid #FFD700;
-    border-radius: 10px;
-    padding: 15px;
+.sn-card {
+    background-color: #666; /* Cor cinza similar à fita */
+    border: 2px solid #333; /* Bordas escuras para dar profundidade */
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
-    color: #00FF00;
-    box-shadow: 0px 0px 10px 2px #FFD700;
+    color: #FFF;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    height: 290px; /* Altura aproximada de uma fita de SNES */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card h3 {
+.sn-image img {
+    width: 100%;
+    height: auto;
+    max-height: 190px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0px 0px 6px 0px black;
+}
+
+.sn-label {
+    background-color: #333; /* Cor da parte do rótulo */
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 1px black;
+}
+
+.sn-label h3 {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #FFD700; /* Cor dourada do texto */
+}
+
+.sn-label p {
+    font-size: 0.8em;
+    color: #FFF;
     margin: 0;
-    font-size: 1.2em;
 }
 
-.card p {
-    margin: 10px 0 0;
-    font-size: 0.9em;
+.sn-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-color: #333;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.sn-card:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-color: #333;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 /* Estilo do botão de reiniciar */
