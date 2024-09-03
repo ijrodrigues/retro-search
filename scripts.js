@@ -1,3 +1,60 @@
+let hits = 0; // Variável para contar o número de tiros acertados no alien
+
+// Carregar os sons
+const collisionSound = document.getElementById('collision-sound');
+const deathSound = document.getElementById('death-sound');
+
+// Função para criar os tiros da nave
+function criarTiro() {
+    const nave = document.querySelector('.nave');
+    const tiro = document.createElement('div');
+    tiro.classList.add('tiro');
+    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 1}px`;
+    document.body.appendChild(tiro);
+
+    // Verifica se o tiro colide com o alien
+    const checkCollision = setInterval(() => {
+        const tiroRect = tiro.getBoundingClientRect();
+        const alien = document.querySelector('.alien');
+        const alienRect = alien.getBoundingClientRect();
+
+        if (tiroRect.top <= alienRect.bottom &&
+            tiroRect.bottom >= alienRect.top &&
+            tiroRect.left >= alienRect.left &&
+            tiroRect.right <= alienRect.right) {
+
+            hits += 1; // Incrementa o contador de hits
+            collisionSound.play(); // Toca o som de colisão
+            tiro.remove(); // Remove o tiro
+            clearInterval(checkCollision); // Para de checar a colisão para esse tiro
+
+            // Verifica se o alien atingiu o limite de hits e o remove
+            if (hits >= 10) { // Pode ajustar o número de hits conforme necessário
+                deathSound.play(); // Toca o som de morte
+                alien.remove();
+            }
+        }
+    }, 50);
+
+    // Remover o tiro depois que ele sai da tela
+    setTimeout(() => {
+        tiro.remove();
+        clearInterval(checkCollision); // Para de checar a colisão se o tiro sair da tela
+    }, 2000);
+}
+
+// Disparar tiros quando o usuário clica
+document.addEventListener('click', criarTiro);
+
+// Desbloquear áudio na primeira interação do usuário
+document.addEventListener('mousemove', function() {
+    // Desbloqueia a reprodução de áudio no navegador após a primeira interação
+    collisionSound.play().catch(() => {});
+    deathSound.play().catch(() => {});
+    // Remove o listener após a primeira tentativa
+    document.removeEventListener('mousemove', arguments.callee);
+});
+
 // Função para criar as estrelas
 function criarEstrelas(quantidade) {
     const estrelasDiv = document.querySelector('.estrelas');
@@ -14,50 +71,7 @@ function criarEstrelas(quantidade) {
 // Chamando a função para criar 200 estrelas
 criarEstrelas(200);
 
-// Função para criar os tiros da nave
-function criarTiro() {
-    const nave = document.querySelector('.nave');
-    const tiro = document.createElement('div');
-    tiro.classList.add('tiro');
-    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 1}px`;
-    document.body.appendChild(tiro);
-
-    // Remover o tiro depois que ele sai da tela
-    setTimeout(() => {
-        tiro.remove();
-    }, 2000);
-}
-
-// Disparar tiros a cada 500ms
-setInterval(criarTiro, 500);
-
-// Função de busca de jogos retro
-document.getElementById('searchInput').addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-    const resultsContainer = document.getElementById('results');
-
-    // Exemplo de resultados estáticos
-    const games = [
-        { name: "Super Mario Bros", description: "A classic platformer game by Nintendo." },
-        { name: "The Legend of Zelda", description: "An action-adventure game with puzzles and exploration." },
-        { name: "Pac-Man", description: "A maze arcade game with ghosts and pellets." },
-        { name: "Street Fighter II", description: "A popular fighting game with memorable characters." },
-        { name: "Mega Man X", description: "A side-scrolling platformer with robot enemies." },
-        { name: "Sonic the Hedgehog", description: "A fast-paced platformer featuring Sonic the blue hedgehog." },
-        { name: "Tetris", description: "A puzzle game with falling blocks." },
-        { name: "Donkey Kong", description: "An arcade game with barrels and a giant ape." }
-    ];
-
-    const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-
-    resultsContainer.innerHTML = filteredGames.map(game => `
-        <div class="card">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
-        </div>
-    `).join('');
-});
-
+// Função para mover a nave junto com o mouse
 document.addEventListener('mousemove', function(event) {
     const nave = document.querySelector('.nave');
     const x = event.clientX; // Pega a posição X do mouse

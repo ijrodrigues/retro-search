@@ -105,6 +105,8 @@ body {
     top: 0;
     left: -10%; /* Começa fora da tela à esquerda */
     animation: moverAlien 120s linear infinite;
+    width: 70px;
+    height: 100px;
 }
 
 @keyframes moverAlien {
