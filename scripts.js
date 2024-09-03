@@ -12,7 +12,24 @@ function criarEstrelas(quantidade) {
 }
 
 // Chamando a função para criar 200 estrelas
-criarEstrelas(100);
+criarEstrelas(200);
+
+// Função para criar os tiros da nave
+function criarTiro() {
+    const nave = document.querySelector('.nave');
+    const tiro = document.createElement('div');
+    tiro.classList.add('tiro');
+    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 1}px`;
+    document.body.appendChild(tiro);
+
+    // Remover o tiro depois que ele sai da tela
+    setTimeout(() => {
+        tiro.remove();
+    }, 2000);
+}
+
+// Disparar tiros a cada 500ms
+setInterval(criarTiro, 500);
 
 // Função de busca de jogos retro
 document.getElementById('searchInput').addEventListener('input', function () {
@@ -39,4 +56,10 @@ document.getElementById('searchInput').addEventListener('input', function () {
             <p>${game.description}</p>
         </div>
     `).join('');
+});
+
+document.addEventListener('mousemove', function(event) {
+    const nave = document.querySelector('.nave');
+    const x = event.clientX; // Pega a posição X do mouse
+    nave.style.left = `${x}px`; // Move a nave na posição X do mouse
 });

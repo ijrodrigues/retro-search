@@ -52,10 +52,70 @@ body {
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(10px, 10px);
+        transform: translate(50px, 50px);
     }
     100% {
         transform: translate(0, 0);
+    }
+}
+
+/* Estilo da nave */
+.nave {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 30px solid #FFD700;
+    transition: left 0.1s linear; /* Adiciona uma transição suave para o movimento */
+}
+
+@keyframes moverNave {
+    0% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-30px); }
+    100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* Estilo dos tiros */
+.tiro {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: #FF0066;
+    animation: moverTiro 2s linear infinite;
+}
+
+@keyframes moverTiro {
+    0% {
+        bottom: 50px;
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* Estilo do alien */
+.alien {
+    position: absolute;
+    top: 0;
+    left: -10%; /* Começa fora da tela à esquerda */
+    animation: moverAlien 120s linear infinite;
+}
+
+@keyframes moverAlien {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(100vw + 60px)); /* Move o alien para fora da tela à direita */
+    }
+    100% {
+        transform: translateX(0); /* Volta à posição inicial */
     }
 }
 
@@ -77,9 +137,11 @@ body {
 }
 
 input[type="text"] {
-    width: 80%;
+    width: 60%;
+    margin-top: 20px;
     padding: 10px;
     font-size: 1.5em;
+    text-align: center;
     border: 2px solid #FFD700;
     background-color: black;
     color: #00FF00;
@@ -88,7 +150,8 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-    color: #FFD700;
+    color: #9d8c2f;
+    font-size: 1.2rem;
 }
 
 .results {
