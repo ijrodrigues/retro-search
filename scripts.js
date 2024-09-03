@@ -3,6 +3,7 @@ let hits = 0; // Variável para contar o número de tiros acertados no alien
 // Carregar os sons
 const collisionSound = document.getElementById('collision-sound');
 const deathSound = document.getElementById('death-sound');
+const restartButton = document.getElementById('restartButton'); // Botão de reiniciar
 
 // Função para criar os tiros da nave
 function criarTiro() {
@@ -16,6 +17,13 @@ function criarTiro() {
     const checkCollision = setInterval(() => {
         const tiroRect = tiro.getBoundingClientRect();
         const alien = document.querySelector('.alien');
+
+        if (!alien) {
+            // Se o alien não existe mais, para de checar a colisão
+            clearInterval(checkCollision);
+            return;
+        }
+
         const alienRect = alien.getBoundingClientRect();
 
         if (tiroRect.top <= alienRect.bottom &&
@@ -32,6 +40,7 @@ function criarTiro() {
             if (hits >= 10) { // Pode ajustar o número de hits conforme necessário
                 deathSound.play(); // Toca o som de morte
                 alien.remove();
+                restartButton.style.display = 'block'; // Mostra a imagem de reiniciar
             }
         }
     }, 50);
@@ -45,15 +54,6 @@ function criarTiro() {
 
 // Disparar tiros quando o usuário clica
 document.addEventListener('click', criarTiro);
-
-// Desbloquear áudio na primeira interação do usuário
-document.addEventListener('mousemove', function() {
-    // Desbloqueia a reprodução de áudio no navegador após a primeira interação
-    collisionSound.play().catch(() => {});
-    deathSound.play().catch(() => {});
-    // Remove o listener após a primeira tentativa
-    document.removeEventListener('mousemove', arguments.callee);
-});
 
 // Função para criar as estrelas
 function criarEstrelas(quantidade) {
@@ -76,4 +76,9 @@ document.addEventListener('mousemove', function(event) {
     const nave = document.querySelector('.nave');
     const x = event.clientX; // Pega a posição X do mouse
     nave.style.left = `${x}px`; // Move a nave na posição X do mouse
+});
+
+// Evento para recarregar a página quando o botão de reiniciar for clicado
+restartButton.addEventListener('click', function() {
+    location.reload(); // Recarrega a página para reiniciar o minijogo
 });

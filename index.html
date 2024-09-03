@@ -13,13 +13,16 @@
 <div class="container">
     <h1 class="title">Retro Games</h1>
     <input type="text" id="searchInput" placeholder="Pesquise por jogos como Zelda, Super Mário, Space Invaders e etc...">
-    <img src="space-invader.gif" alt="monster" class="alien" width="70px" height="100px">
+    <img src="assets/space-invader.gif" alt="monster" class="alien" width="70px" height="100px">
     <div id="results" class="results"></div>
 </div>
 
+<!-- Botão de reiniciar -->
+<img id="restartButton" src="assets/reset.png" alt="Reiniciar" class="restart-button" style="display: none;">
+
 <!-- Adicionando os arquivos de som -->
-<audio id="collision-sound" src="laser.wav" preload="auto"></audio>
-<audio id="death-sound" src="death.wav" preload="auto"></audio>
+<audio id="collision-sound" src="assets/laser.wav" preload="auto"></audio>
+<audio id="death-sound" src="assets/death.wav" preload="auto"></audio>
 
 <script src="scripts.js"></script>
 </body>
