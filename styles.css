@@ -129,7 +129,7 @@ body {
 /* Estilo geral da página */
 .container {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
     z-index: 1;
     position: relative;
     overflow-y: auto;
@@ -289,4 +289,29 @@ input[type="text"]::placeholder {
 #github-link{
     color: #3fe0ff;
     text-decoration: none;
+}
+
+.filters{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    margin-top: 7px;
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #FFA500;
 }

@@ -85,16 +85,30 @@ restartButton.addEventListener('click', function() {
     location.reload(); // Recarrega a página para reiniciar o minijogo
 });
 
-// Função de busca de jogos retro
+// Função para mostrar os jogos filtrados com base na busca
 document.getElementById('searchInput').addEventListener('input', function () {
     const query = this.value.toLowerCase();
     const resultsContainer = document.getElementById('results');
 
     if(query.length !== 0) {
         const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-        resultsContainer.innerHTML = filteredGames.map(game => `
-            <div class="sn-wrapper">
-            <div class="sn-ear left-ear"></div> <!-- Orelha esquerda -->
+        displayGames(filteredGames);
+    } else {
+        resultsContainer.innerHTML = '';
+    }
+});
+
+// Função para exibir todos os jogos sem filtro
+document.getElementById('showAllBtn').addEventListener('click', function () {
+    displayGames(games); // Exibe todos os jogos
+});
+
+// Função para exibir os jogos
+function displayGames(gameList) {
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = gameList.map(game => `
+        <div class="sn-wrapper">
+            <div class="sn-ear left-ear"></div>
             <div class="sn-center">
                 <div class="sn-image">
                     <img src="assets/${game.image}" alt="${game.name}">
@@ -104,10 +118,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
                     <p>${game.description}</p>
                 </div>
             </div>
-            <div class="sn-ear right-ear"></div> <!-- Orelha direita -->
-            </div>
+            <div class="sn-ear right-ear"></div>
+        </div>
     `).join('');
-    }else {
-        resultsContainer.innerHTML = '';
-    }
-});
+}
