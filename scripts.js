@@ -10,7 +10,7 @@ function criarTiro() {
     const nave = document.querySelector('.nave');
     const tiro = document.createElement('div');
     tiro.classList.add('tiro');
-    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 20}px`;
+    tiro.style.left = `${nave.offsetLeft + nave.offsetWidth / 2 - 15}px`;
     document.body.appendChild(tiro);
 
     // Verifica se o tiro colide com o alien
@@ -72,7 +72,7 @@ function criarEstrelas(quantidade) {
 criarEstrelas(200);
 
 // Função para mover a nave junto com o mouse
-document.addEventListener('mousemove', function(event) {
+document.addEventListener('mousemove', function (event) {
     const nave = document.querySelector('.nave');
     const x = event.clientX; // Pega a posição X do mouse
     nave.style.left = `${x}px`; // Move a nave na posição X do mouse
@@ -88,16 +88,15 @@ document.getElementById('searchInput').addEventListener('input', function () {
     const query = this.value.toLowerCase();
     const resultsContainer = document.getElementById('results');
 
-    // Exemplo de resultados estáticos
+    // Exemplo de resultados estáticos com gameLink
     const games = [
-        { name: "Super Mario Bros", description: "A classic platformer game by Nintendo.", image: "super-mario.png" },
-        { name: "The Legend of Zelda", description: "An action-adventure game with puzzles and exploration.", image: "zelda.webp" },
-        { name: "Pac-Man", description: "A maze arcade game with ghosts and pellets.", image: "pac-man.png" },
-        { name: "Street Fighter II", description: "A popular fighting game with memorable characters.", image: "street-fighter.png" },
-        { name: "Mega Man X", description: "A side-scrolling platformer with robot enemies.", image: "mega-man.png" },
-        { name: "Sonic the Hedgehog", description: "A fast-paced platformer featuring Sonic the blue hedgehog.", image: "sonic.png" },
-        { name: "Tetris", description: "A puzzle game with falling blocks.", image: "tetris.png" },
-        { name: "Donkey Kong", description: "An arcade game with barrels and a giant ape.", image: "donkey-kong.png" }
+        {
+            name: "Super Mario",
+            description: "Super Mario All-Stars e Super Mario World",
+            image: "super-mario-world.png",
+            platform: "Super Nintendo",
+            gameLink: "https://www.retrogames.cc/embed/44617-super-mario-all-stars-super-mario-world-improvement.html"
+        }
     ];
 
     if(query.length !== 0) {

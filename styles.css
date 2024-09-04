@@ -67,9 +67,9 @@ body {
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 30px solid #FFD700;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #FFD700;
     transition: left 0.1s linear;
 }
 
@@ -110,8 +110,8 @@ body {
     top: 0;
     left: -5%;
     animation: moverAlien 40s linear infinite;
-    width: 70px;
-    height: 100px;
+    width: 50px;
+    height: 80px;
 }
 
 @keyframes moverAlien {
@@ -138,8 +138,8 @@ body {
 }
 
 .title {
-    margin-bottom: 20px;
-    font-size: 3em;
+    margin-bottom: 0;
+    font-size: 2em;
     color: #FFD700;
     text-shadow:
             4px 4px 0 #FF0066,
@@ -149,8 +149,8 @@ body {
 input[type="text"] {
     width: 60%;
     margin-top: 20px;
-    padding: 10px;
-    font-size: 1.5em;
+    padding: 8px;
+    font-size: 0.9em;
     text-align: center;
     border: 2px solid #FFD700;
     background-color: black;
@@ -161,7 +161,7 @@ input[type="text"] {
 
 input[type="text"]::placeholder {
     color: #9d8c2f;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     user-select: none;
 }
 
@@ -180,6 +180,7 @@ input[type="text"]::placeholder {
     justify-content: center;
     background-color: transparent; /* Permite que o fundo fique visível */
     padding: 10px;
+    cursor: pointer;
 }
 
 .sn-wrapper:hover {
@@ -190,7 +191,7 @@ input[type="text"]::placeholder {
     background-color: #3f3f3f;
     border: 2px solid #333;
     width: 10%; /* Largura menor para as orelhas */
-    height: 285px; /* Altura ajustada */
+    height: 200px; /* Altura ajustada */
     box-shadow: 6px 6px 0 #212121, 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
 }
@@ -208,7 +209,7 @@ input[type="text"]::placeholder {
 .sn-center {
     background-color: #555;
     border: 2px solid #333;
-    height: 280px; /* Altura ajustada */
+    height: 200px; /* Altura ajustada */
     width: 70%; /* Largura maior para o centro */
     display: flex;
     flex-direction: column;
@@ -248,17 +249,29 @@ input[type="text"]::placeholder {
 
 .sn-label h3 {
     margin: 0;
-    font-size: 1em;
+    font-size: 0.9em;
     color: #FFD700;
 }
 
 .sn-label p {
-    font-size: 0.8em;
+    font-size: 0.6em;
     color: #FFF;
     margin: 5px 0 0;
-    text-align: left;
+    text-align: center;
 }
 
+/* Estilo do botão de reiniciar */
+.restart-button {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    width: 90px;
+    height: 65px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
 
 .restart-button:hover {
     transform: translateY(5px);
