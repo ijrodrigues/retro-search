@@ -1,3 +1,5 @@
+import { games } from './data.js';
+
 let hits = 0; // Variável para contar o número de tiros acertados no alien
 
 // Carregar os sons
@@ -88,17 +90,6 @@ document.getElementById('searchInput').addEventListener('input', function () {
     const query = this.value.toLowerCase();
     const resultsContainer = document.getElementById('results');
 
-    // Exemplo de resultados estáticos com gameLink
-    const games = [
-        {
-            name: "Super Mario",
-            description: "Super Mario All-Stars e Super Mario World",
-            image: "super-mario-world.png",
-            platform: "Super Nintendo",
-            gameLink: "https://www.retrogames.cc/embed/44617-super-mario-all-stars-super-mario-world-improvement.html"
-        }
-    ];
-
     if(query.length !== 0) {
         const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
         resultsContainer.innerHTML = filteredGames.map(game => `
@@ -115,7 +106,6 @@ document.getElementById('searchInput').addEventListener('input', function () {
             </div>
             <div class="sn-ear right-ear"></div> <!-- Orelha direita -->
             </div>
-        
     `).join('');
     }else {
         resultsContainer.innerHTML = '';
