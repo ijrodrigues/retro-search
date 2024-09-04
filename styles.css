@@ -133,6 +133,7 @@ body {
     z-index: 1;
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-bottom: 80px;
 }
 
@@ -170,68 +171,53 @@ input[type="text"]::placeholder {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     padding: 0 10px;
-}
-
-.sn-card {
-    background-color: #555;
-    border: 2px solid #333;
-    border-radius: 10px;
-    text-align: center;
-    color: #FFF;
-    position: relative;
     overflow: hidden;
-    height: 280px;
+}
+
+.sn-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-shadow: 6px 6px 0 #212121, 0 0 10px rgba(0, 0, 0, 0.5);
-    transform-style: preserve-3d;
-    padding: 10px 25px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Permite que o fundo fique visível */
+    padding: 10px;
 }
 
-.sn-card::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background-color: #333;
-    top: -10px;
-    left: 0;
-    right: 0;
-    border-radius: 10px 10px 0 0;
+.sn-wrapper:hover {
+    transform: scale(1.05);
 }
 
-.sn-card::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    background-color: #333;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    border-radius: 0 0 10px 10px;
-}
-
-/* Estilo para as orelhas da fita */
 .sn-ear {
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background-color: #555;
+    background-color: #3f3f3f;
     border: 2px solid #333;
-    z-index: 1;
+    width: 10%; /* Largura menor para as orelhas */
+    height: 285px; /* Altura ajustada */
+    box-shadow: 6px 6px 0 #212121, 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 .left-ear {
-    left: -30px;
-    border-radius: 10px 0 0 10px;
+    border-radius: 7px 0 0 7px;
+    z-index: 0;
 }
 
 .right-ear {
-    right: -30px;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 7px 7px 0;
+    z-index: 1;
+}
+
+.sn-center {
+    background-color: #555;
+    border: 2px solid #333;
+    height: 280px; /* Altura ajustada */
+    width: 70%; /* Largura maior para o centro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 6px 6px 0 #212121, 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 .sn-image {
@@ -240,6 +226,7 @@ input[type="text"]::placeholder {
     border-radius: 10px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .sn-image img {
@@ -247,7 +234,6 @@ input[type="text"]::placeholder {
     height: auto;
     max-height: 150px;
     border-radius: 8px;
-    box-shadow: 0 0 6px 0 black;
     object-fit: cover;
 }
 
@@ -256,7 +242,8 @@ input[type="text"]::placeholder {
     padding: 10px;
     border-radius: 10px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .sn-label h3 {
@@ -272,22 +259,6 @@ input[type="text"]::placeholder {
     text-align: left;
 }
 
-.sn-card:hover {
-    transform: rotateX(3deg) rotateY(3deg) scale(1.05);
-}
-
-/* Estilo do botão de reiniciar */
-.restart-button {
-    position: fixed;
-    top: 20px;
-    right: 50px;
-    width: 90px;
-    height: 65px;
-    cursor: pointer;
-    z-index: 1000;
-    display: none;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
 
 .restart-button:hover {
     transform: translateY(5px);

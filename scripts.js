@@ -103,16 +103,20 @@ document.getElementById('searchInput').addEventListener('input', function () {
     if(query.length !== 0) {
         const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
         resultsContainer.innerHTML = filteredGames.map(game => `
-        <div class="sn-card">
-            <div class="sn-image">
-                <img src="assets/${game.image}" alt="${game.name}">
+            <div class="sn-wrapper">
+            <div class="sn-ear left-ear"></div> <!-- Orelha esquerda -->
+            <div class="sn-center">
+                <div class="sn-image">
+                    <img src="assets/${game.image}" alt="${game.name}">
+                </div>
+                <div class="sn-label">
+                    <h3>${game.name}</h3>
+                    <p>${game.description}</p>
+                </div>
             </div>
-            <div class="sn-label">
-                <h3>${game.name}</h3>
-                <p>${game.description}</p>
+            <div class="sn-ear right-ear"></div> <!-- Orelha direita -->
             </div>
-            <div class="sn-ear right-ear"></div>
-        </div>
+        
     `).join('');
     }else {
         resultsContainer.innerHTML = '';
