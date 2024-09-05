@@ -9,11 +9,12 @@ let gameEnded = false; // Variável para controlar o fim do jogo
 const aliens = [
     { imagePath: 'assets/alien1.gif', hitsToKill: 15, class: 'alien' },
     { imagePath: 'assets/alien2.gif', hitsToKill: 20, class: 'alien2' },
-    { imagePath: 'assets/alien3.gif', hitsToKill: 30, class: 'alien3' },
-    { imagePath: 'assets/alien4.gif', hitsToKill: 50, class: 'alien4' },
+    { imagePath: 'assets/alien3.gif', hitsToKill: 33, class: 'alien3' },
+    { imagePath: 'assets/alien4.gif', hitsToKill: 60, class: 'alien4' },
 ];
 
 const collisionSound = document.getElementById('collision-sound');
+const hahahaSound = document.getElementById('hahaha-sound');
 const deathSound = document.getElementById('death-sound');
 const restartButton = document.getElementById('restartButton');
 const nave = document.getElementById('nave');
@@ -61,6 +62,10 @@ function criarAlien() {
     hits = 0; // Reseta o contador de hits para o novo alien
 
     let hitsToKill = alienData.hitsToKill;
+
+    if(currentAlienIndex === 3){
+        hahahaSound.play();
+    }
 
     // Função para verificar colisão do tiro com o alien
     function checkCollision(tiro) {
