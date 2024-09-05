@@ -7,10 +7,12 @@ let gameEnded = false; // Variável para controlar o fim do jogo
 
 // Lista de aliens com diferentes imagens e número de hits
 const aliens = [
+
     { imagePath: 'assets/alien1.gif', hitsToKill: 15, class: 'alien' },
     { imagePath: 'assets/alien2.gif', hitsToKill: 20, class: 'alien2' },
-    { imagePath: 'assets/alien3.gif', hitsToKill: 33, class: 'alien3' },
-    { imagePath: 'assets/alien4.gif', hitsToKill: 60, class: 'alien4' },
+    { imagePath: 'assets/alien3.gif', hitsToKill: 30, class: 'alien3' },
+    { imagePath: 'assets/alien4.gif', hitsToKill: 30, class: 'alien5' },
+    { imagePath: 'assets/alien5.gif', hitsToKill: 70, class: 'alien4' },
 ];
 
 const collisionSound = document.getElementById('collision-sound');
@@ -63,7 +65,7 @@ function criarAlien() {
 
     let hitsToKill = alienData.hitsToKill;
 
-    if(currentAlienIndex === 3){
+    if(currentAlienIndex === 4){
         hahahaSound.play();
     }
 

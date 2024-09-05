@@ -129,6 +129,34 @@ body {
     user-select: none;
 }
 
+@keyframes moverAlien5 {
+    0% {
+        transform: translateX(0) translateY(500px); /* Início do movimento */
+    }
+    25% {
+        transform: translateX(calc(25vw)) translateY(200px); /* Movimento para direita e para baixo */
+    }
+    50% {
+        transform: translateX(calc(50vw)) translateY(-20px); /* Movimento para direita e para cima */
+    }
+    75% {
+        transform: translateX(calc(75vw)) translateY(250px); /* Movimento para direita e para baixo */
+    }
+    100% {
+        transform: translateX(calc(100vw)) translateY(0); /* Final do movimento, volta à posição inicial */
+    }
+}
+
+.alien5 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    animation: moverAlien5 5s linear infinite;
+    width: 150px;
+    height: 100px;
+    user-select: none;
+}
+
 .alien3 {
     position: absolute;
     top: 0;
@@ -137,28 +165,6 @@ body {
     width: 150px;
     height: 100px;
     user-select: none;
-}
-
-.alien4 {
-    position: absolute;
-    top: 0;
-    left: -5%;
-    animation: moverAlien4 10s linear infinite;
-    width: 350px;
-    height: 300px;
-    user-select: none;
-}
-
-@keyframes moverAlien4 {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(calc(15vw + 10px));
-    }
-    100% {
-        transform: translateX(0);
-    }
 }
 
 @keyframes moverAlien3 {
@@ -173,6 +179,28 @@ body {
     }
     90% {
         transform: translateX(calc(100vw + 10px));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.alien4 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    animation: moverAlien4 10s linear infinite;
+    width: 300px;
+    height: 250px;
+    user-select: none;
+}
+
+@keyframes moverAlien4 {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(10vw));
     }
     100% {
         transform: translateX(0);
