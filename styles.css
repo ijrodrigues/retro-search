@@ -139,6 +139,28 @@ body {
     user-select: none;
 }
 
+.alien4 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    animation: moverAlien4 10s linear infinite;
+    width: 350px;
+    height: 300px;
+    user-select: none;
+}
+
+@keyframes moverAlien4 {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(15vw + 10px));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @keyframes moverAlien3 {
     0% {
         transform: translateX(0);
