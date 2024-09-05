@@ -98,6 +98,10 @@ body {
         bottom: 50%;
         opacity: 1;
     }
+    90% {
+        bottom: 95%;
+        opacity: 0;
+    }
     100% {
         bottom: 100%;
         opacity: 0;
@@ -109,7 +113,7 @@ body {
     position: absolute;
     top: 0;
     left: -5%;
-    animation: moverAlien 40s linear infinite;
+    animation: moverAlien 30s linear infinite;
     width: 50px;
     height: 80px;
     user-select: none;
@@ -117,10 +121,10 @@ body {
 
 .alien2 {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: -5%;
-    animation: moverAlien 20s linear infinite;
-    width: 50px;
+    animation: moverAlien 15s linear infinite;
+    width: 80px;
     height: 80px;
     user-select: none;
 }
@@ -129,9 +133,9 @@ body {
     position: absolute;
     top: 0;
     left: -5%;
-    animation: moverAlien3 20s linear infinite;
-    width: 50px;
-    height: 80px;
+    animation: moverAlien3 10s linear infinite;
+    width: 150px;
+    height: 100px;
     user-select: none;
 }
 
@@ -303,7 +307,7 @@ input[type="text"]::placeholder {
 
 /* Estilo do botão de reiniciar */
 .restart-button {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 50px;
     width: 90px;
@@ -311,6 +315,7 @@ input[type="text"]::placeholder {
     cursor: pointer;
     z-index: 1000;
     display: none;
+    user-select: none;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -361,5 +366,16 @@ input[type="text"]::placeholder {
 
 .game-link{
     text-decoration: none;
+    user-select: none;
+}
+
+.timer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    color: #FFD700;
+    font-family: 'Press Start 2P', cursive;
+    z-index: 1000;
     user-select: none;
 }
