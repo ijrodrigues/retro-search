@@ -129,7 +129,7 @@ body {
     user-select: none;
 }
 
-@keyframes moverAlien5 {
+@keyframes moverAlien4 {
     0% {
         transform: translateX(0) translateY(500px); /* Início do movimento */
     }
@@ -147,11 +147,11 @@ body {
     }
 }
 
-.alien5 {
+.alien4 {
     position: absolute;
     top: 0;
     left: -5%;
-    animation: moverAlien5 5s linear infinite;
+    animation: moverAlien4 5s linear infinite;
     width: 150px;
     height: 100px;
     user-select: none;
@@ -185,17 +185,17 @@ body {
     }
 }
 
-.alien4 {
+.alien5 {
     position: absolute;
     top: 0;
     left: -5%;
-    animation: moverAlien4 10s linear infinite;
+    animation: moverAlien5 10s linear infinite;
     width: 300px;
     height: 250px;
     user-select: none;
 }
 
-@keyframes moverAlien4 {
+@keyframes moverAlien5 {
     0% {
         transform: translateX(0);
     }
