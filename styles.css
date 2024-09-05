@@ -327,15 +327,17 @@ input[type="text"]::placeholder {
 .footer{
     position: fixed;
     bottom: 40px;
-    right: 0;
+    left: 0;
     padding: 10px;
-    font-size: 0.4em;
+    font-size: 0.2em;
     user-select: none;
 }
 
 #github-link{
     color: #3fe0ff;
     text-decoration: none;
+    text-wrap: nowrap;
+    display: inline;
 }
 
 .filters{
