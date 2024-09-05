@@ -41,3 +41,6 @@ Abra um Pull Request.
 
 ## 📜 Licença
 Este projeto está licenciado sob os termos da licença MIT.
+Todos os direitos sobre os jogos, imagens e marcas mencionadas pertencem às suas respectivas empresas.
+Não há intenção de violar qualquer direito autoral ou de propriedade intelectual.
+Este projeto foi desenvolvido apenas para fins educacionais e não possui fins comerciais.
