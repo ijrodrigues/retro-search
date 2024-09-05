@@ -13,7 +13,6 @@
 <div class="container">
     <h1 class="title">Retro Games</h1>
     <input type="text" id="searchInput" placeholder="Pesquise por jogos como Zelda, Super Mário, Space Invaders e etc...">
-    <img src="assets/space-invader.gif" alt="monster" class="alien">
     <div class="filters">
         <button id="showAllBtn" class="filter-btn">Todos</button>
         <button id="showNintendoBtn" class="filter-btn">Nintendo</button>
@@ -28,7 +27,10 @@
 <audio id="collision-sound" src="assets/laser.wav" preload="auto"></audio>
 <audio id="death-sound" src="assets/death.wav" preload="auto"></audio>
 
-<script type="module" src="scripts.js"></script>
+<script type="module" src="search-logic.js"></script>
+<script src="stars.js"></script>
+<script src="mini-game.js"></script>
+
 </body>
 <footer>
     <p class="footer">2024 - Desenvolvido por <a id="github-link" href="https://github.com/ijrodrigues" target="_blank">Israel Rodrigues</a><br>na Imersão Dev Alura + Google Gemini </p>

@@ -115,6 +115,44 @@ body {
     user-select: none;
 }
 
+.alien2 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    animation: moverAlien 20s linear infinite;
+    width: 50px;
+    height: 80px;
+    user-select: none;
+}
+
+.alien3 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    animation: moverAlien3 20s linear infinite;
+    width: 50px;
+    height: 80px;
+    user-select: none;
+}
+
+@keyframes moverAlien3 {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(calc(80vw + 10px));
+    }
+    30% {
+        transform: translateX(calc(40vw + 10px));
+    }
+    90% {
+        transform: translateX(calc(100vw + 10px));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @keyframes moverAlien {
     0% {
         transform: translateX(0);
