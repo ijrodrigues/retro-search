@@ -152,7 +152,7 @@ body {
     top: 0;
     left: -5%;
     animation: moverAlien4 5s linear infinite;
-    width: 150px;
+    width: 100px;
     height: 100px;
     user-select: none;
 }
@@ -162,7 +162,7 @@ body {
     top: 0;
     left: -5%;
     animation: moverAlien3 10s linear infinite;
-    width: 150px;
+    width: 100px;
     height: 100px;
     user-select: none;
 }
@@ -189,8 +189,8 @@ body {
     position: absolute;
     top: 0;
     left: -5%;
-    animation: moverAlien5 10s linear infinite;
-    width: 300px;
+    animation: moverAlien5 20s linear infinite;
+    width: 350px;
     height: 250px;
     user-select: none;
 }
@@ -200,7 +200,7 @@ body {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(calc(10vw));
+        transform: translateX(calc(2vw));
     }
     100% {
         transform: translateX(0);
@@ -430,4 +430,16 @@ input[type="text"]::placeholder {
     font-family: 'Press Start 2P', cursive;
     z-index: 1000;
     user-select: none;
+}
+
+.death-star {
+    position: fixed;
+    bottom: -30px;
+    left: 40%;
+    width: 100%;
+    height: 960px;
+    background-image: url('assets/clouds.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: -1;
 }

@@ -8,16 +8,20 @@ let gameEnded = false; // Variável para controlar o fim do jogo
 // Lista de aliens com diferentes imagens e número de hits
 const aliens = [
 
-    { imagePath: 'assets/alien1.gif', hitsToKill: 15, class: 'alien' },
-    { imagePath: 'assets/alien2.gif', hitsToKill: 20, class: 'alien2' },
-    { imagePath: 'assets/alien3.gif', hitsToKill: 30, class: 'alien3' },
-    { imagePath: 'assets/alien4.gif', hitsToKill: 30, class: 'alien4' },
-    { imagePath: 'assets/alien5.gif', hitsToKill: 90, class: 'alien5' },
+    { imagePath: 'assets/alien1.gif', hitsToKill: 1, class: 'alien' },
+    { imagePath: 'assets/alien2.gif', hitsToKill: 2, class: 'alien2' },
+    { imagePath: 'assets/alien3.gif', hitsToKill: 3, class: 'alien3' },
+    { imagePath: 'assets/alien4.gif', hitsToKill: 3, class: 'alien4' },
+    { imagePath: 'assets/alien5.gif', hitsToKill: 9, class: 'alien5' },
 ];
 
 const collisionSound = document.getElementById('collision-sound');
 const hahahaSound = document.getElementById('hahaha-sound');
 const deathSound = document.getElementById('death-sound');
+const noSound = document.getElementById('no-sound');
+const darthVaderSound = document.getElementById('darth-vader-sound');
+const pacmanSound = document.getElementById('pacman-sound');
+const tartarugaSound = document.getElementById('tartaruga-sound');
 const restartButton = document.getElementById('restartButton');
 const nave = document.getElementById('nave');
 const timerElement = document.getElementById('timer');
@@ -65,8 +69,24 @@ function criarAlien() {
 
     let hitsToKill = alienData.hitsToKill;
 
-    if(currentAlienIndex === 4){
+    if(currentAlienIndex === 0){
         hahahaSound.play();
+    }
+
+    if(currentAlienIndex === 1){
+        hahahaSound.play();
+    }
+
+    if(currentAlienIndex === 2){
+        pacmanSound.play();
+    }
+
+    if(currentAlienIndex === 3){
+        tartarugaSound.play();
+    }
+
+    if(currentAlienIndex === 4){
+        darthVaderSound.play();
     }
 
     // Função para verificar colisão do tiro com o alien
@@ -88,6 +108,9 @@ function criarAlien() {
             if (hits >= hitsToKill) {
                 deathSound.play();
                 alien.remove();
+                if(currentAlienIndex === 4){
+                    noSound.play();
+                }
                 currentAlienIndex += 1;
                 criarAlien(); // Cria o próximo alien
             }
