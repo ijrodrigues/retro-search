@@ -1,9 +1,6 @@
 ## 🎮 Demo
 Clique aqui: [Retro Search - Demo](https://ijrodrigues.github.io/retro-search/)
 
-## 🗳️ Vote aqui
-Se você gostou desse projeto e ESTÁ PARTICIPANDO da imersão, por favor, [VOTE AQUI](https://discord.com/channels/1277631721822748742/1277631722716008535/1281217542823870548)
-
 # Retro Search
 
 Este é o projeto **Retro Search**, criado para a **Imersão de Desenvolvimento** feita pela **Alura** e pelo **Google Gemini**. O objetivo do projeto é criar um buscador de jogos retro, onde os usuários podem pesquisar por jogos, filtrar por plataformas e ser redirecionado para jogar os títulos.
